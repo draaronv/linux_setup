@@ -1,0 +1,45 @@
+"Set the numbers on the side"
+set number
+set nocompatible
+set backspace=2
+"Allows for the implementation of the mouse"
+set mouse=a
+set laststatus=2
+
+"Window management"
+set splitbelow splitright
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+"Resizing of windows
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+map <Leader>th <C-w>t<C-w>H
+map <Leader>tk <C-w>t<C-w>K
+
+syntax on
+set statusline+=%F
+call plug#begin()
+Plug 'valloric/youcompleteme'
+Plug 'scrooloose/syntastic'
+Plug 'preservim/nerdtree'
+Plug 'ayu-theme/ayu-vim'
+Plug 'suoto/vim-hdl'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:vimhdl_conf_file = '<config/file>'
+map <F2> :NERDTree<CR>
+call plug#end()
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
